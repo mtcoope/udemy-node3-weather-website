@@ -10,7 +10,9 @@ const forecasts = (lat, long, callback) => {
         } else if (body.error) {
             callback('No location found!')
         } else {
-            const responseMessage = body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degrees out. There is a ' + body.currently.precipProbability + '% change of rain'
+            const responseMessage = body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degrees out. There is a ' + 
+            body.currently.precipProbability + '% change of rain' + '. The high for today is ' + body.daily.data[0].temperatureHigh + 
+            '. The low is ' + body.daily.data[0].temperatureLow + '.'
             callback(undefined, responseMessage)
         }
     })
